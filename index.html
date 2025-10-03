@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>STOPWATCH</h1>
+        <button id="themeToggle" class="theme-toggle" title="Toggle Theme">
+          🌓
+        </button>
+      </div>
+      <div class="display">00:00:00.00</div>
+
+      <div class="button">
+        <button id="startStopBtn">Start/Stop</button>
+        <button id="resetBtn">Reset</button>
+        <button id="lapBtn">Lap</button>
+      </div>
+      <div class="custom-timer">
+        <input type="number" id="customSeconds" placeholder="Enter seconds" />
+        <button id="setCustomTimerBtn">Set Custom Timer</button>
+      </div>
+
+      <div class="lap-container" id="lapContainer" style="display: none">
+        <h3>Lap Times</h3>
+        <div class="lap-list" id="lapList"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

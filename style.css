@@ -1,0 +1,231 @@
+/*reset some default browser styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*CSS Variables for light theme of stopwatch*/
+:root {
+  --bg-color: #f4f4f4;
+  --container-bg: #fff;
+  --text-color: #333;
+  --display-bg: #fff;
+  --display-border: #ddd;
+  --button-bg: #800000;
+  --button-hover: #a24857;
+  --button-text: #fff;
+  --lap-bg: #f9f9f9;
+  --lap-entry-bg: #fff;
+  --lap-border: #ddd;
+  --input-border: #ddd;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/*Dark theme variables*/
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --container-bg: #2d2d2d;
+  --text-color: #e0e0e0;
+  --display-bg: #3a3a3a;
+  --display-border: #555;
+  --button-bg: #b30000;
+  --button-hover: #d63447;
+  --button-text: #fff;
+  --lap-bg: #3a3a3a;
+  --lap-entry-bg: #4a4a4a;
+  --lap-border: #555;
+  --input-border: #555;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* style for the body*/
+body {
+  font-family: Arial, Poppins, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*style the container*/
+.container {
+  background-color: var(--container-bg);
+  padding: 20px;
+  width: 400px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid var(--lap-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/*style the header with title and theme toggle*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/*style the heading*/
+h1 {
+  font-size: 24px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/*style the theme toggle button*/
+.theme-toggle {
+  background: none !important;
+  border: 2px solid var(--button-bg) !important;
+  color: var(--button-bg) !important;
+  font-size: 18px !important;
+  padding: 8px 12px !important;
+  border-radius: 50% !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 !important;
+}
+
+/*sty;e tbe theme toggle button on hover*/
+.theme-toggle:hover {
+  background-color: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  transform: scale(1.1);
+}
+
+/*style the time input field*/
+.display {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid var(--display-border);
+  background-color: var(--display-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/*style the button group*/
+button {
+  margin-bottom: 20px;
+}
+
+/*style all the buttons*/
+button {
+  padding: 8px 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--button-text);
+  background-color: var(--button-bg);
+  transition: all 0.3s ease;
+}
+
+/*styling button color on hover*/
+button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-1px);
+}
+
+/*custom style for custom time button*/
+.custom-timer {
+  margin-top: 10px;
+}
+
+/*style for lap container*/
+.lap-container {
+  margin-top: 20px;
+  border: 1px solid var(--lap-border);
+  border-radius: 5px;
+  padding: 15px;
+  background-color: var(--lap-bg);
+  transition: all 0.3s ease;
+}
+
+.lap-container h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--lap-border);
+  padding-bottom: 8px;
+}
+
+.lap-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.lap-entry {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background-color: var(--lap-entry-bg);
+  border-radius: 4px;
+  border-left: 3px solid var(--button-bg);
+  font-size: 14px;
+  box-shadow: 0 1px 3px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.lap-entry strong {
+  color: var(--button-bg);
+}
+
+.lap-entry .total-time {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+/*style custom timer section*/
+.customSeconds {
+  padding: 10px;
+  width: 150px;
+  font-size: 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  margin-right: 5px;
+  background-color: var(--display-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.customSeconds:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 5px rgba(128, 0, 0, 0.3);
+}
+
+/*make it responsive for mobile*/
+@media (max-width: 500px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .display {
+    font-size: 24px;
+  }
+  button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .theme-toggle {
+    font-size: 16px !important;
+    padding: 6px 10px !important;
+  }
+  .customSeconds {
+    width: 100px;
+    padding: 8px;
+    font-size: 12px;
+  }
+}
